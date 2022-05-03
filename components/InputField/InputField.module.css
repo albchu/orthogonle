@@ -2,7 +2,7 @@
     width: 500px;
     height: 84px;
     display: grid;
-    /* grid-template-columns: 1fr; */
+    grid-template-columns: 1fr;
     cursor: pointer;
 }
 
@@ -11,16 +11,16 @@
     caret-color: transparent;
     /* background-color: var(--blue-8); */
     width: 100%;
-    /* grid-row-start: 1;
-    grid-column-start: 1; */
+    grid-row-start: 1;
+    grid-column-start: 1;
     /* user-select: none; */
 }
 
 .valueContainer {
     display: flex;
     flex-direction: row;
-    /* grid-row-start: 1;
-    grid-column-start: 1; */
+    grid-row-start: 1;
+    grid-column-start: 1;
     gap: var(--size-2);
     text-transform: capitalize;
 }
