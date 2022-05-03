@@ -1,0 +1,51 @@
+.container {
+    width: 500px;
+    height: 84px;
+    display: grid;
+    grid-template-columns: 1fr;
+    cursor: pointer;
+}
+
+.input {
+    color: transparent;
+    caret-color: transparent;
+    /* background-color: var(--blue-8); */
+    width: 100%;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    user-select: none;
+}
+
+.valueContainer {
+    display: flex;
+    flex-direction: row;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    gap: var(--size-2);
+    text-transform: capitalize;
+}
+
+.char {
+    animation-duration: 0.3s;
+    animation-name: showChar;
+    animation-timing-function: var(--ease-out-1);
+    font-size: var(--font-size-8);
+    user-select: none;
+}
+
+@keyframes showChar {
+    from {
+        margin-left: -100%;
+        opacity: 0;
+    }
+
+
+    20% {
+        opacity: 0;
+    }
+
+    to {
+        margin-left: 0%;
+        opacity: 1;
+    }
+}

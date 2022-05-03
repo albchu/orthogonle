@@ -5,8 +5,10 @@ import every from "lodash/every";
 import includes from "lodash/includes";
 import random from "lodash/random";
 import flatMap from "lodash/flatMap";
+import path from "path";
 
-const wordsFileHandle = fs.readFileSync("./public/words.txt", "utf8");
+const dir = path.resolve("./public/words.txt");
+const wordsFileHandle = fs.readFileSync(dir, "utf8");
 const words = wordsFileHandle.toString().split("\n");
 
 const getUniqueCharacters = (str) => uniq(str.split(""));

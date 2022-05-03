@@ -12,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
-        <h2>Orthogonle</h2>
+        <h2>Wurd Me</h2>
       </header>
 
       <main className={styles.main}>

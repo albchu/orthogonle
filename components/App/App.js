@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import InputField from "../InputField";
 import styles from "./App.module.css";
 
 const buildLabel = (numWords) => {
@@ -50,6 +51,7 @@ export const App = () => {
 
   return (
     <div className={styles.container}>
+      <InputField />
       <div className={styles.words}>
         {words.map((word) => (
           <div key={word}>{word}</div>
