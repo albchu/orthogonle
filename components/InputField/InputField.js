@@ -7,6 +7,12 @@ const InputField = () => {
   const focusInput = () => {
     inputRef.current && inputRef.current.focus();
   };
+
+  const handleUpdate = (e) => {
+    setValue(e.target.value);
+    focusInput(); // Iphone keyboard seems to lose focus on each char
+  };
+
   return (
     <>
       <button onClick={() => setValue("")}>reset</button>
@@ -15,7 +21,7 @@ const InputField = () => {
           type="text"
           value={value}
           className={styles.input}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={handleUpdate}
           maxLength={5}
           ref={inputRef}
         />
