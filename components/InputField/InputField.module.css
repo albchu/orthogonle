@@ -26,9 +26,9 @@
 }
 
 .char {
-    animation-duration: 0.3s;
+    /* animation-duration: 0.3s;
     animation-name: showChar;
-    animation-timing-function: var(--ease-out-1);
+    animation-timing-function: var(--ease-out-1); */
     font-size: var(--font-size-8);
     user-select: none;
 }

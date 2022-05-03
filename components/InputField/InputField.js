@@ -10,7 +10,7 @@ const InputField = () => {
 
   const handleUpdate = (e) => {
     setValue(e.target.value);
-    focusInput(); // Iphone keyboard seems to lose focus on each char
+    // focusInput(); // Iphone keyboard seems to lose focus on each char
   };
 
   return (
