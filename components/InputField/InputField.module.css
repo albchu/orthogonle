@@ -7,8 +7,9 @@
 }
 
 .input {
-    color: transparent;
-    caret-color: transparent;
+    /* color: transparent;
+    caret-color: transparent; */
+    opacity: 0;
     /* background-color: var(--blue-8); */
     width: 100%;
     grid-row-start: 1;

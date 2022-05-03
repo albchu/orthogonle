@@ -18,6 +18,7 @@ const InputField = () => {
       <button onClick={() => setValue("")}>reset</button>
       <div className={styles.container} onClick={focusInput}>
         <input
+          spellCheck={false}
           type="text"
           value={value}
           className={styles.input}
