@@ -1,9 +1,15 @@
 .container {
-    width: 500px;
+    width: 260px;
     height: 84px;
     display: grid;
     grid-template-columns: 1fr;
     cursor: pointer;
+    background: rgba(2, 2, 2, 0.2);
+    border-radius: var(--radius-3);
+}
+
+.container:focus-within {
+    outline: 2px solid hsl(199deg, 65%, 73%);
 }
 
 .input {
@@ -24,6 +30,7 @@
     grid-column-start: 1;
     gap: var(--size-2);
     text-transform: capitalize;
+    padding: 0 var(--size-3)
 }
 
 .char {
@@ -36,12 +43,7 @@
 
 @keyframes showChar {
     from {
-        margin-left: -100%;
-        opacity: 0;
-    }
-
-
-    20% {
+        margin-left: -3%;
         opacity: 0;
     }
 

@@ -51,13 +51,15 @@ export const App = () => {
 
   return (
     <div className={styles.container}>
-      <InputField />
-      <div className={styles.words}>
-        {words.map((word) => (
-          <div key={word}>{word}</div>
-        ))}
-      </div>
       <div>
+        <InputField />
+        <div className={styles.words}>
+          {words.map((word) => (
+            <div key={word}>{word}</div>
+          ))}
+        </div>
+      </div>
+      <div className={styles.buttons}>
         <button disabled={disableButton} onClick={handleButtonClick}>
           {buttonLabel}
         </button>
