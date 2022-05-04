@@ -13,3 +13,10 @@
 .buttons {
     justify-self: flex-end;
 }
+
+.words {
+    padding-top: var(--size-4);
+    gap: var(--size-4);
+    display: flex;
+    flex-direction: column;
+}

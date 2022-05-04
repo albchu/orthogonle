@@ -1,11 +1,15 @@
 .container {
-    width: 260px;
+    --char-width: .8em;
+    width: 288px;
     height: 84px;
     display: grid;
     grid-template-columns: 1fr;
     cursor: pointer;
     background: rgba(2, 2, 2, 0.2);
     border-radius: var(--radius-3);
+    animation-duration: 0.4s;
+    animation-name: fadeInDown;
+    animation-timing-function: var(--ease-out-1);
 }
 
 .container:focus-within {
@@ -34,11 +38,24 @@
 }
 
 .char {
-    animation-duration: 0.3s;
+    animation-duration: 0.2s;
     animation-name: showChar;
     animation-timing-function: var(--ease-out-1);
     font-size: var(--font-size-8);
-    /* user-select: none; */
+    width: var(--char-width)
+        /* user-select: none; */
+}
+
+@keyframes fadeInDown {
+    from {
+        margin-top: -8%;
+        opacity: 0;
+    }
+
+    to {
+        margin-top: 0%;
+        opacity: 1;
+    }
 }
 
 @keyframes showChar {

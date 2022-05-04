@@ -13,6 +13,8 @@ const buildLabel = (numWords) => {
 };
 
 export const App = () => {
+  const [value, setValue] = useState("");
+
   const [words, setWords] = useState([]);
   const [buttonLabel, setButtonLabel] = useState("Give me a word");
   const [disableButton, setDisableButton] = useState(false);
@@ -21,6 +23,7 @@ export const App = () => {
     setWords([]);
     setDisableButton(false);
     setButtonLabel("Lets try again");
+    setValue("");
   };
 
   const handleButtonClick = async () => {
@@ -52,10 +55,12 @@ export const App = () => {
   return (
     <div className={styles.container}>
       <div>
-        <InputField />
+        <InputField value={value} setValue={setValue} />
         <div className={styles.words}>
           {words.map((word) => (
-            <div key={word}>{word}</div>
+            <div key={word}>
+              <InputField value={word} setValue={setValue} />
+            </div>
           ))}
         </div>
       </div>
