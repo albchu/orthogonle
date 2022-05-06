@@ -1,12 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import fs from "fs";
 import uniq from "lodash/uniq";
 import filter from "lodash/filter";
 import every from "lodash/every";
 import includes from "lodash/includes";
+import { initAllWords } from "../../api-common/utils";
 
-const wordsFileHandle = fs.readFileSync("./public/words.txt", "utf8");
-const words = wordsFileHandle.toString().split("\n");
+const words = initAllWords();
 
 const getUniqueCharacters = (str) => uniq(str.split(""));
 
