@@ -1,7 +1,6 @@
 .container {
     /* background-color: var(--blue-9); */
-    height: 100vh;
-    /* height: -webkit-fill-available; */
+    height: 95vh;
     width: 100vw;
     display: flex;
     align-items: center;
