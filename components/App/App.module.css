@@ -1,6 +1,7 @@
 .container {
     /* background-color: var(--blue-9); */
     height: 100vh;
+    /* height: -webkit-fill-available; */
     width: 100vw;
     display: flex;
     align-items: center;
@@ -12,6 +13,10 @@
 
 .buttons {
     justify-self: flex-end;
+    height: var(--size-9);
+    display: flex;
+    flex-direction: row;
+    gap: var(--size-3)
 }
 
 .words {
@@ -19,4 +24,31 @@
     gap: var(--size-4);
     display: flex;
     flex-direction: column;
+}
+
+.resetButton {
+    width: var(--size-7);
+    height: 100%;
+    background: url('/rotate-left.svg');
+    background-position: center;
+    background-origin: border-box;
+    background-repeat: no-repeat;
+}
+
+.goButton {
+    padding: 0 var(--size-4);
+    background-color: var(--blue-9);
+    border-radius: var(--radius-2);
+    user-select: none;
+    ;
+}
+
+.goButton:hover {
+    box-shadow: 1px 5px 12px rgba(0, 0, 0, 0.3);
+    background-color: var(--blue-8);
+}
+
+.goButton:active {
+    background-color: var(--blue-8);
+    box-shadow: none;
 }

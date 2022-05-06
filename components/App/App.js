@@ -31,7 +31,7 @@ export const App = () => {
     let newWord;
     if (words.length) {
       const res = await fetch("/api/findWord", {
-        body: JSON.stringify({ search: words }),
+        body: JSON.stringify({ exclude: words }),
         headers: {
           "Content-Type": "application/json",
         },
@@ -44,7 +44,7 @@ export const App = () => {
         return;
       }
     } else {
-      const res = await fetch("/api/getRandomWord");
+      const res = await fetch("/api/getRandomUniqueWord");
       newWord = await res.text();
     }
     setWords((prev) => [...prev, newWord]);
@@ -65,10 +65,14 @@ export const App = () => {
         </div>
       </div>
       <div className={styles.buttons}>
-        <button disabled={disableButton} onClick={handleButtonClick}>
+        <button
+          disabled={disableButton}
+          className={styles.goButton}
+          onClick={handleButtonClick}
+        >
           {buttonLabel}
         </button>
-        <button onClick={handleReset}>Reset</button>
+        <button className={styles.resetButton} onClick={handleReset} />
       </div>
     </div>
   );
