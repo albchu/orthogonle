@@ -27,6 +27,11 @@
     /* user-select: none; */
 }
 
+/* Sometimes on mobile you can see the text get selected on update. This hides it */
+.input::selection {
+    background: transparent;
+}
+
 .valueContainer {
     display: flex;
     flex-direction: row;
