@@ -68,8 +68,7 @@
     position: absolute;
     top: -15px;
     right: -15px;
-    width: var(--size-7);
-    height: var(--size-7);
+    padding: var(--size-1);
     border-radius: var(--radius-round);
     background-color: hsl(var(--gray-5-hsl) / 30%);
 }
