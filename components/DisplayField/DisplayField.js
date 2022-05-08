@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import styles from "./InputField.module.css";
 import clsx from "clsx";
 
-const InputField = ({ value, setValue, onCharClick }) => {
+const DisplayField = ({ value, setValue, onCharClick }) => {
   const inputRef = useRef();
   const [selectedChars, setSelectedChars] = useState(
     value
@@ -26,15 +26,6 @@ const InputField = ({ value, setValue, onCharClick }) => {
       className={clsx(styles.container, isReadOnly && styles.readOnly)}
       onClick={focusInput}
     >
-      <input
-        spellCheck={false}
-        type="text"
-        value={value}
-        className={styles.input}
-        onChange={handleUpdate}
-        maxLength={5}
-        ref={inputRef}
-      />
       <div className={styles.valueContainer}>
         {value.split("").map((char, index) => (
           <div
@@ -50,4 +41,4 @@ const InputField = ({ value, setValue, onCharClick }) => {
   );
 };
 
-export default InputField;
+export default DisplayField;

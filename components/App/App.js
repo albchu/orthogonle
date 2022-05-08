@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import InputField from "../InputField";
 import { RotateLeftIcon } from "../RotateLeftIcon";
 import { XMarkIcon } from "../XMarkIcon";
@@ -20,19 +20,45 @@ export const App = () => {
   const [words, setWords] = useState([]);
   const [buttonLabel, setButtonLabel] = useState("surprise me");
   const [disableButton, setDisableButton] = useState(false);
+  const [numWordsLeft, setNumWordsLeft] = useState(0);
+
+  useEffect(() => {
+    const doAsync = async () => {
+      const res = await fetch("/api/countWords", {
+        body: JSON.stringify({
+          exclude: words,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+      const numLeft = await res.text();
+      setNumWordsLeft(numLeft);
+    };
+
+    doAsync();
+  }, [words]);
 
   const handleReset = () => {
     setWords([]);
     setDisableButton(false);
     setButtonLabel("lets try again");
-    setValue("");
   };
 
   const handleButtonClick = async () => {
     let newWord;
     if (words.length) {
       const res = await fetch("/api/findWord", {
-        body: JSON.stringify({ exclude: words }),
+        body: JSON.stringify({
+          exclude: words,
+          hardMatch: [
+            {
+              char: "e",
+              index: 3,
+            },
+          ],
+        }),
         headers: {
           "Content-Type": "application/json",
         },
@@ -61,15 +87,18 @@ export const App = () => {
     setWords((prev) => [val, ...prev.slice(1)]);
   };
 
+  const handleCharClick = ({ char, index }) => {
+    console.log("You selected char", { char, index });
+  };
+
   return (
     <div className={styles.container}>
       <div>
-        {/* <InputField value={value} setValue={setValue} /> */}
         <InputField value={words?.[0] || ""} setValue={handleManualFirstWord} />
         <div className={styles.words}>
           {words.slice(1).map((word, index) => (
             <div className={styles.wordContainer} key={word}>
-              <InputField value={word} setValue={setValue} />
+              <InputField value={word} onCharClick={handleCharClick} />
               <button onClick={handleDeleteWord(index + 1)}>
                 <XMarkIcon />
               </button>
@@ -88,6 +117,7 @@ export const App = () => {
         <button className={styles.resetButton} onClick={handleReset}>
           <RotateLeftIcon />
         </button>
+        <div>{numWordsLeft} words left</div>
       </div>
     </div>
   );
